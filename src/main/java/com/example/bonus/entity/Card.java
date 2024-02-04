@@ -13,7 +13,9 @@ import java.util.Set;
 @Setter
 @ToString
 @Entity
-@Table(name = "cards")
+@Table(name = "cards", indexes = {
+        @Index(name = "idx_card_number", columnList = "number", unique = true)
+})
 public class Card implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

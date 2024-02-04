@@ -14,7 +14,9 @@ import java.time.LocalDateTime;
 @Setter
 @ToString
 @Entity
-@Table(name = "transactions")
+@Table(name = "transactions", indexes = {
+        @Index(name = "idx_transaction_card_id", columnList = "card_id")
+})
 public class Transaction implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
